@@ -8,7 +8,7 @@ import io
 import json
 import requests
 import sys
-import urllib2 as urllib
+import urllib3 as urllib
 import zbarlight
 
 HV_URL = 'http://hackvent.hacking-lab.com'
@@ -18,7 +18,7 @@ HV_COOKIE = {'HACKvent_Ticket': HV_TICKET,'HACKvent_User':HV_USER}
 HV_SERIVCEURL = 'http://hackvent.hacking-lab.com/load.php?service=';
 
 def get_url(url):
-    if HV_TICKET!='YOURTICKET':
+    if HV_TICKET!='YOUR_TICKET':
         return HV_URL + url
     else:
         print('Change HV_TICKET!')
