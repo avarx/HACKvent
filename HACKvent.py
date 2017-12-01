@@ -11,11 +11,11 @@ import sys
 import urllib3 as urllib
 import zbarlight
 
-HV_URL = 'http://hackvent.hacking-lab.com'
+HV_URL = 'https://hackvent.hacking-lab.com'
 HV_TICKET = 'YOUR_TICKET'
 HV_USER = 'YOUR_USERNAME'
 HV_COOKIE = {'HACKvent_Ticket': HV_TICKET,'HACKvent_User':HV_USER}
-HV_SERIVCEURL = 'http://hackvent.hacking-lab.com/load.php?service=';
+HV_SERIVCEURL = 'https://hackvent.hacking-lab.com/load.php?service=';
 
 def get_url(url):
     if HV_TICKET!='YOUR_TICKET':
@@ -34,7 +34,7 @@ def get_challenge_content(day):
     return content
 
 def submit_flag(flag):
-    data = {'code':flag}
+    data = {'code':flag, 'ticket': HV_TICKET }
     r = requests.post(HV_SERIVCEURL+'solution', data=data,cookies=HV_COOKIE)
     answer = json.loads(r.text)
     return(answer['txt'])
